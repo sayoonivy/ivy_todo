@@ -1,13 +1,13 @@
-.homepage {
+.promotionsPage {
   display: flex;
-  margin: 15px 15px;
+  margin: 15px 10px;
   border-radius: 20px;
   width: 100%;
   background-color: white;
   justify-content: center;
   align-items: center;
 }
-.homepage > h1 {
+.promotionsPage > h1 {
   margin: 0;
   padding: 0;
 }
