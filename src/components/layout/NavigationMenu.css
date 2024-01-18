@@ -6,6 +6,7 @@
   margin: 15px 0px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .navigation-menu ul {
   margin: 0;
@@ -18,22 +19,33 @@
   font-size: 25px;
   display: flex;
   flex-direction: row;
-  background-color: aquamarine;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  position: relative;
 }
 .navigation-menu li .link {
-  text-decoration: none;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  flex-grow: 1;
+  box-sizing: border-box;
   color: black;
+  text-decoration: none;
 }
 .navigation-menu li .tab-indicator {
-  width: 10px;
-  height: 1em;
-  background-color: blue;
-  display: flex;
-  float: right;
+  width: 4px;
+  height: 80%;
+  background-color: lightpink;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
-.navigation-menu li .selectedItem {
-  background-color: #cbc3e3;
+.navigation-menu li.selectedItem .link {
   font-weight: 700;
+}
+.navigation-menu li.selectedItem .tab-indicator {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

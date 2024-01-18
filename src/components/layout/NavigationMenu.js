@@ -12,8 +12,12 @@ export default function NavigationMenu() {
   return (
     <div className="navigation-menu">
       <ul>
-        {["dashboard", "promotions", "tiktok", "instagram"].map((item) => (
-          <li key={item} className={item} onClick={() => handleClick(item)}>
+        {["dashboard", "promotions", "tiktok"].map((item) => (
+          <li
+            key={item}
+            className={`${item} ${selectedItem === item ? "selectedItem" : ""}`}
+            onClick={() => handleClick(item)}
+          >
             <Link to={`/${item === "dashboard" ? "" : item}`} className="link">
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </Link>
