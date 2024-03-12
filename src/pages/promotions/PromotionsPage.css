@@ -1,0 +1,13 @@
+.promotionsPage {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 10px;
+  border-radius: 20px;
+  width: 100%;
+  background-color: white;
+  padding: 15px 25px;
+}
+.promotionsPage > h1 {
+  margin: 0;
+  padding: 0;
+}

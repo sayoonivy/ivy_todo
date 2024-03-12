@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { refreshToken } from "../services/Node";
-import { UserContext } from "../components/UserContext";
+import { refreshToken } from "../../services/Node";
+import { UserContext } from "../../components/UserContext";
 import "./HomePage.css";
 
 export default function HomePage() {

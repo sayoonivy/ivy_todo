@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-import TextField from "../components/common/TextField";
-import Button from "../components/common/Button";
-import ErrorMessage from "../components/common/ErrorMessage";
-import LoadingAnimation from "../components/common/LoadingAnimation";
-import { UserContext } from "../components/UserContext";
+import {
+  Button,
+  TextField,
+  LoadingAnimation,
+  ErrorMessage,
+} from "../../components/common";
+import { UserContext } from "../../components/UserContext";
 import { useNavigate } from "react-router";
-import { login } from "../services/Node";
+import { login } from "../../services/Node";
 
 //TODO: Set a useEffect here to navigate to "/" if refreshToken passes check
 export default function LoginPage() {
@@ -60,7 +62,7 @@ export default function LoginPage() {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Login ^^;;</h1>
+        <h1>Login to IVY Dashboard</h1>
         <TextField
           type="text"
           autoFocus={true}
@@ -73,7 +75,11 @@ export default function LoginPage() {
           name="Password"
           onChanged={onChanged}
         />
-        {loading ? <LoadingAnimation isLoading="true" /> : <Button />}
+        {loading ? (
+          <LoadingAnimation isLoading="true" />
+        ) : (
+          <Button text="Submit" />
+        )}
         {error !== "" && <ErrorMessage type={error} />}
       </form>
     </div>

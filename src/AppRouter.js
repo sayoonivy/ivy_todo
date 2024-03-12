@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import PromotionsPage from "./pages/PromotionsPage";
+import {
+  HomePage,
+  LoginPage,
+  TikTokPage,
+  TODOPage,
+  StripePage,
+} from "./pages/index";
 import NavigationMenu from "./components/layout/NavigationMenu";
 import { UserContext } from "./components/UserContext";
 import { createUseStyles } from "react-jss";
+import { useAuthRedirect } from "./hooks/useAuthRedirect";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -20,23 +25,19 @@ export default function AppRouter() {
   const classes = useStyles();
   const { user } = useContext(UserContext);
 
+  // useAuthRedirect();
   return (
-    <BrowserRouter>
-      <div className={classes.wrapper}>
-        {user && <NavigationMenu />}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          {/* TODO: Must test this redirect -- or just setup useEffect in LoginPage */}
-          <Route
-            path="/login"
-            element={user ? <Navigate to="/" replace /> : <LoginPage />}
-          />
-          <Route path="/promotions" element={<PromotionsPage />} />
-          {/* <Route path="/tiktok" element={<TikTokPage/>}/> */}
-          {/* <Route path="/instagram" element={<InstagramPage/>}/> */}
-          <Route path="*" element={<HomePage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className={classes.wrapper}>
+      {<NavigationMenu />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/stripe" element={<StripePage />} />
+        {/* <Route path="/todo" element={<TODOPage />} /> */}
+        {/* <Route path="/tiktok" element={<TikTokPage />} /> */}
+        {/* <Route path="/instagram" element={<InstagramPage/>}/> */}
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+    </div>
   );
 }

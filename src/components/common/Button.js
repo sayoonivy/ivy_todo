@@ -15,16 +15,19 @@ const useStyles = createUseStyles({
       height: "40px",
       border: "none",
       borderRadius: "5px",
+      padding: "0px 15px",
     },
   },
 });
 
-export default function Button() {
+export default function Button({ text, onClick }) {
   const classes = useStyles();
 
   return (
     <div className={classes.wrapper}>
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={onClick}>
+        {text}
+      </button>
     </div>
   );
 }

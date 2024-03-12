@@ -1,9 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./NavigationMenu.css";
 
 export default function NavigationMenu() {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const location = useLocation();
+  const [selectedItem, setSelectedItem] = useState("dashboard");
+
+  useEffect(() => {
+    const currentPath = location.pathname.replace("/", "") || "dashboard";
+    setSelectedItem(currentPath);
+  }, [location]);
 
   const handleClick = (item) => {
     setSelectedItem(item);
@@ -12,7 +18,7 @@ export default function NavigationMenu() {
   return (
     <div className="navigation-menu">
       <ul>
-        {["dashboard", "promotions", "tiktok"].map((item) => (
+        {["dashboard", "stripe"].map((item) => (
           <li
             key={item}
             className={`${item} ${selectedItem === item ? "selectedItem" : ""}`}
