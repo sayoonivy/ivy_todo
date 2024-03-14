@@ -32,6 +32,11 @@ const options = {
       text: "Refund Total Per Month",
     },
   },
+  scales: {
+    y: {
+      beginAtZero: true,
+    },
+  },
 };
 
 export default function RefundsPage({ refunds }) {

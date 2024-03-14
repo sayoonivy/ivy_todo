@@ -45,7 +45,7 @@
 .stripe-events > div:last-child > div {
   border-radius: 5px;
   padding: 5px;
-  text-align: right;
+  text-align: center;
 }
 .stripe-events > div:last-child > div h2 {
   margin: 0;

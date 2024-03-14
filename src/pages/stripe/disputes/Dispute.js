@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    opacity: ".7",
 
     "& div": {
       display: "flex",

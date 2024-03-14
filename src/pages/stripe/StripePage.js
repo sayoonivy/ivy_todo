@@ -53,7 +53,7 @@ export default function StripePage() {
         }
 
         const responseData = await response.json();
-        createRefundData(responseData);
+        setRefunds(responseData);
       } catch (error) {
         console.error("Failed fetching data: ", error);
       }
@@ -114,10 +114,6 @@ export default function StripePage() {
     setPendingCharges(pendingC);
     setLostCharges(lostC);
     setWonCharges(wonC);
-  };
-
-  const createRefundData = (data) => {
-    console.log(data);
   };
 
   const renderContent = () => {
