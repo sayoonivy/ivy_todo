@@ -45,6 +45,17 @@ export async function getRefunds() {
   return response;
 }
 
+export async function getFrauds() {
+  const response = await fetch(`${REACT_APP_URL}/apis/get-frauds`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response;
+}
+
 export async function deleteStripeEvent(id) {
   const response = await fetch(`${REACT_APP_URL}/apis/delete-event`, {
     method: "POST",

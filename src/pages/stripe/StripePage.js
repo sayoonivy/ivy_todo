@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./StripePage.css";
-import { getDisputes, getRefunds } from "../../services/Node";
+import { getDisputes, getRefunds, getFrauds } from "../../services/Node";
 import TabBar from "../../components/layout/TabBar";
 import DisputesPage from "./disputes/DisputesPage";
 import RefundsPage from "./refunds/RefundsPage";
+import FraudsPage from "./frauds/FraudsPage";
 
 const tabs = [
   {
@@ -26,6 +27,7 @@ export default function StripePage() {
   const [lostCharges, setLostCharges] = useState([]);
   const [wonCharges, setWonCharges] = useState([]);
   const [refunds, setRefunds] = useState([]);
+  const [frauds, setFrauds] = useState([]);
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   useEffect(() => {
@@ -59,8 +61,24 @@ export default function StripePage() {
       }
     };
 
+    const getFraudData = async () => {
+      try {
+        const response = await getFrauds();
+
+        if (!response.ok) {
+          return;
+        }
+
+        const responseData = await response.json();
+        setFrauds(responseData);
+      } catch (error) {
+        console.error("Failed fetching data: ", error);
+      }
+    };
+
     getDisputeData();
     getRefundData();
+    getFraudData();
   }, []);
 
   const categorizeData = (data) => {
@@ -132,7 +150,7 @@ export default function StripePage() {
         return <RefundsPage refunds={refunds} />;
 
       case 2:
-        return <div>3</div>;
+        return <FraudsPage frauds={frauds} />;
 
       default:
         return <div>1</div>;

@@ -98,15 +98,23 @@ export default function Dispute({ charge }) {
           <strong>Reason:</strong> {charge.reason}
         </p>
         {charge.ip === null ? (
-          <></>
+          <p>
+            <strong>No IP Listed</strong>
+          </p>
         ) : (
           <p>
             <strong>IP:</strong> {charge.ip}
           </p>
         )}
-        <p>
-          <strong>Due Date:</strong> {convertTimestampToEST(charge.due)}
-        </p>
+        {charge.type === "lost" || charge.type === "won" ? (
+          <p>
+            <strong>Completed Date:</strong> {convertTimestampToEST(charge.due)}
+          </p>
+        ) : (
+          <p>
+            <strong>Due Date:</strong> {convertTimestampToEST(charge.due)}
+          </p>
+        )}
       </div>
     </div>
   );

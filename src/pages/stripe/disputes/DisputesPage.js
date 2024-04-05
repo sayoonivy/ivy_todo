@@ -19,7 +19,7 @@ export default function DisputesPage({
     return total.toFixed(2);
   }
   return (
-    <div className="stripe-events">
+    <div className="dispute-events">
       <div>
         <div>
           <h1>NEW ({newCharges.length})</h1>

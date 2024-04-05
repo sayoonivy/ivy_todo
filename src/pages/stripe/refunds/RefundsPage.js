@@ -39,6 +39,7 @@ const options = {
   },
 };
 
+//TODO:This only shows 2024 data. Should add function to make range by year
 export default function RefundsPage({ refunds }) {
   const labels = refunds.map((refund) => getMonthName(refund.month));
   const dataPoints = refunds.map((refund) => refund.amount);

@@ -3,29 +3,37 @@
   border-radius: 20px;
   width: 100%;
   background-color: white;
+  display: flex;
+  flex-direction: column;
   padding: 20px 20px;
 }
 .stripe-page > div:first-child {
   display: flex;
 }
+.stripe-page > div:nth-child(2) {
+  flex-grow: 1;
+  overflow: hidden;
+}
 
 /* Dispute Columns */
-.stripe-events > div {
+.dispute-events {
+  height: 100%;
+}
+.dispute-events > div {
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 20px;
   margin-top: 20px;
 }
-.stripe-events > div:first-child {
-  height: 80vh;
+.dispute-events > div:first-child {
+  height: 88%;
 }
-@media (max-width: 1600px) {
-  .stripe-events > div:first-child {
-    height: 75vh;
-  }
+.dispute-events > div:last-child {
+  height: 20%;
 }
-.stripe-events > div > div {
+
+.dispute-events > div > div {
   width: 100%;
   text-align: center;
   border-radius: 10px;
@@ -34,21 +42,97 @@
   -ms-overflow-style: none;
   position: relative;
 }
-.stripe-events > div > div::-webkit-scrollbar {
+.dispute-events > div > div::-webkit-scrollbar {
   display: none;
 }
-.stripe-events > div > div > h1 {
+.dispute-events > div > div > h1 {
   font-size: 1.75rem;
 }
 
 /* Amount Box */
-.stripe-events > div:last-child > div {
+.dispute-events > div:last-child > div {
   border-radius: 5px;
   padding: 5px;
   text-align: center;
 }
-.stripe-events > div:last-child > div h2 {
+.dispute-events > div:last-child > div h2 {
   margin: 0;
   padding: 0;
   font-size: 1.2rem;
+}
+
+/* Fraud Calendar */
+.fraud-events {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.fraud-events h1 {
+  text-align: center;
+}
+.fraud-events h2 {
+  margin: 0px;
+  padding: 0px;
+}
+.fraud-events p {
+  margin: 0px;
+  margin-top: 10px;
+}
+.fraud-events .calendar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.fraud-events .calendar > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 20px;
+  height: 100%;
+  margin-bottom: 20px;
+}
+/* TODO: Maybe Add borders? */
+.fraud-events .calendar > div > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 3%;
+}
+.fraud-events .calendar .jan {
+  background-color: #b5eaea;
+}
+.fraud-events .calendar .feb {
+  background-color: #ffc8dd;
+}
+.fraud-events .calendar .mar {
+  background-color: #bde0fe;
+}
+.fraud-events .calendar .apr {
+  background-color: #a2d2ff;
+}
+.fraud-events .calendar .may {
+  background-color: #ffd9c0;
+}
+.fraud-events .calendar .jun {
+  background-color: #fae1dd;
+}
+.fraud-events .calendar .jul {
+  background-color: #ffcdb2;
+}
+.fraud-events .calendar .aug {
+  background-color: #ffafcc;
+}
+.fraud-events .calendar .sep {
+  background-color: #bdb2ff;
+}
+.fraud-events .calendar .oct {
+  background-color: #ffb4a2;
+}
+.fraud-events .calendar .nov {
+  background-color: #ecd4ff;
+}
+.fraud-events .calendar .dec {
+  background-color: #d8e2dc;
 }
